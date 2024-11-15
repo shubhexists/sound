@@ -8,7 +8,7 @@ fn main() {
     let _ = Term::buffered_stdout();
     let (_stream, stream_handle) = OutputStream::try_default().unwrap();
     let file: BufReader<File> = BufReader::new(
-        File::open("/home/jerry/Desktop/projects/sound/mech-keyboard-02-102918.mp3").unwrap(),
+        File::open(std::env::current_dir().unwrap().join("mech-keyboard-02-102918.mp3")).unwrap(),
     );
 
     let source: Decoder<BufReader<File>> = Decoder::new(file).unwrap();
